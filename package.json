@@ -7,6 +7,8 @@
     "body-parser": "latest",
     "axios": "latest",
     "moment": "latest",
-    "moment-timezone": "latest"
+    "moment-timezone": "latest",
+    "co": "latest",
+    "lodash": "latest"
   }
 }
