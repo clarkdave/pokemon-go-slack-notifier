@@ -1,5 +1,6 @@
 'use strict'
 
+let _ = require('lodash')
 let express = require('express')
 let bodyParser = require('body-parser')
 let axios = require('axios')
@@ -33,8 +34,13 @@ app.post('/', function(req, res) {
 
   co(function *() {
     let pokemon = pokemonLookup.find(p => p.id === pokemonId)
-    let icon = `${config.icon_base_url}/${pokemon.short_name}.png`
 
+    if (_.includes(config.ignore_pokemon, pokemon.short_name)) {
+      console.log(`<${new Date().toISOString()}> Skipping ${pokemon.short_name}`)
+      return
+    }
+
+    let icon = `${config.icon_base_url}/${pokemon.short_name}.png`
     let imageUrl = encodeURI(`https://maps.googleapis.com/maps/api/staticmap?` +
       `center=${lat}+${lng}&zoom=17&size=400x200&scale=2&` +
       `markers=icon:${icon}|${lat}+${lng}&` +
