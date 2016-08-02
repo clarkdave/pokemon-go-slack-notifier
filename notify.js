@@ -18,6 +18,7 @@ server.listen(port, function (err) {
 })
 
 app.post('/', function(req, res) {
+  console.log(`<${new Date().toISOString()}> ${JSON.stringify(req.body)}`)
   res.sendStatus(200)
 
   if (req.body.type !== 'pokemon') return
