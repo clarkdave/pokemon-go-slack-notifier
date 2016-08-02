@@ -12,12 +12,10 @@ app.use(bodyParser.json())
 
 let server = require('http').Server(app)
 let port = process.env.PORT || 7800
-let googleKey = config.google_api_key
-let iconBaseUrl = config.icon_base_url
 
 server.listen(port, function (err) {
-  console.log('Listening on port ' + port)
-});
+  console.log(`<${new Date().toISOString()}> Listening on port ${port}`)
+})
 
 app.post('/', function(req, res) {
   res.sendStatus(200)
