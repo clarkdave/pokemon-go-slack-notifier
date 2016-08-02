@@ -1,0 +1,12 @@
+{
+  "name": "pokemon-go-slack-notifier",
+  "version": "1.0.0",
+  "main": "notify.js",
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "axios": "latest",
+    "moment": "latest",
+    "moment-timezone": "latest"
+  }
+}
